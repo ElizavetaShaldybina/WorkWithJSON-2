@@ -13,6 +13,7 @@
 		B00CA29B2B00EDBF0003ECFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B00CA2992B00EDBF0003ECFE /* Main.storyboard */; };
 		B00CA29D2B00EDC20003ECFE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B00CA29C2B00EDC20003ECFE /* Assets.xcassets */; };
 		B00CA2A02B00EDC20003ECFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B00CA29E2B00EDC20003ECFE /* LaunchScreen.storyboard */; };
+		B00CA2A82B00F0DA0003ECFE /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00CA2A72B00F0DA0003ECFE /* Course.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B00CA29C2B00EDC20003ECFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B00CA29F2B00EDC20003ECFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B00CA2A12B00EDC20003ECFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B00CA2A72B00F0DA0003ECFE /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				B00CA2932B00EDBF0003ECFE /* AppDelegate.swift */,
+				B00CA2A72B00F0DA0003ECFE /* Course.swift */,
 				B00CA2952B00EDBF0003ECFE /* SceneDelegate.swift */,
 				B00CA2972B00EDBF0003ECFE /* ViewController.swift */,
 				B00CA2992B00EDBF0003ECFE /* Main.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B00CA2A82B00F0DA0003ECFE /* Course.swift in Sources */,
 				B00CA2982B00EDBF0003ECFE /* ViewController.swift in Sources */,
 				B00CA2942B00EDBF0003ECFE /* AppDelegate.swift in Sources */,
 				B00CA2962B00EDBF0003ECFE /* SceneDelegate.swift in Sources */,
