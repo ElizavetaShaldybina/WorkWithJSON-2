@@ -26,6 +26,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="goButtonPushed" destination="BYZ-38-t0r" eventType="touchUpInside" id="2v7-Ba-bxu"/>
+                                    <segue destination="0Lb-FM-v9Q" kind="presentation" id="t6K-CL-w7J"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -40,6 +41,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139.69465648854961" y="3.5211267605633805"/>
+        </scene>
+        <!--Information View Controller-->
+        <scene sceneID="HDa-1h-EdC">
+            <objects>
+                <viewController id="0Lb-FM-v9Q" customClass="InformationViewController" customModule="WorkWithJSON" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PbC-cN-7Wa">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nsg-iu-Ahn">
+                                <rect key="frame" x="76.333333333333329" y="306" width="240.33333333333337" height="230.33333333333337"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nsg-iu-Ahn" secondAttribute="height" multiplier="24:23" id="hqY-Dm-3WV"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9Ib-6H-FKV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nsg-iu-Ahn" firstAttribute="centerX" secondItem="PbC-cN-7Wa" secondAttribute="centerX" id="mIJ-oH-Iah"/>
+                            <constraint firstItem="9Ib-6H-FKV" firstAttribute="trailing" secondItem="nsg-iu-Ahn" secondAttribute="trailing" constant="76.329999999999998" id="sUH-b2-7Rp"/>
+                            <constraint firstItem="nsg-iu-Ahn" firstAttribute="top" secondItem="9Ib-6H-FKV" secondAttribute="top" constant="306" id="xes-90-GSW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dogImage" destination="nsg-iu-Ahn" id="Nb7-d9-hMH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cHS-KI-jUJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="954.96183206106866" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>
