@@ -22,15 +22,15 @@ final class InformationViewController: UIViewController {
     private func fetchImage() {
         networkManager.fetchDog(url: Link.myURL.url) { url in
             guard let url = URL(string: url ?? "") else { return }
-                self.networkManager.fetchImage(from: Link.myURL.url) { result in
+                self.networkManager.fetchImage(from: url) { result in
                     switch result {
                     case .success(let data):
                         self.dogImage.image = UIImage(data: data)
                     case .failure(let error):
                         print(error)
-                    }
                 }
             }
         }
     }
+}
 
