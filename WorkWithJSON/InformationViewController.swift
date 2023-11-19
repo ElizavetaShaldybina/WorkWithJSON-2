@@ -6,30 +6,40 @@
 //
 
 import UIKit
+import Alamofire
 
 final class InformationViewController: UIViewController {
     
     @IBOutlet weak var dogImage: UIImageView!
     
+    private var dog: Dog!
     private let networkManager = NetworkManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchImage()
+        
+        fetchDog()
     }
     
-    private func fetchImage() {
-        networkManager.fetchDog(url: Link.myURL.url) { url in
-            guard let url = URL(string: url ?? "") else { return }
-                self.networkManager.fetchImage(from: url) { result in
+    private func fetchDog() {
+        networkManager.fetchDog(from: Link.myURL.url) { result in
+            switch result {
+            case .success(let dog):
+                self.dog = dog
+                
+                self.networkManager.fetchData(from: dog?.message ?? "") { result in
                     switch result {
-                    case .success(let data):
-                        self.dogImage.image = UIImage(data: data)
+                    case .success(let imageData):
+                        self.dogImage.image = UIImage(data: imageData)
                     case .failure(let error):
-                        print(error)
+                        print (error)
+                    }
                 }
+            case .failure(let error):
+                print (error)
             }
         }
     }
 }
+
 

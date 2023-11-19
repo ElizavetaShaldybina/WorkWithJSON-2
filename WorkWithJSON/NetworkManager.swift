@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum Link {
     case myURL
@@ -18,46 +19,35 @@ enum Link {
     }
 }
 
-enum NetworkError: Error {
-    case invalidURL
-    case noData
-    case decodingError
-}
-
 final class NetworkManager {
     static let shared = NetworkManager()
     
     private init() {}
     
-    func fetchImage(from url: URL, completion: @escaping(Result<Data, NetworkError>) -> Void) {
-        DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: url) else {
-                completion(.failure(.noData))
-                return
-            }
-            DispatchQueue.main.async {
-                completion(.success(imageData))
+    func fetchDog(from url: URL, completion: @escaping(Result<Dog?, AFError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    let dogs = Dog.getDogs(from: value)
+                    completion(.success(dogs))
+                case .failure(let error):
+                    completion(.failure(error))
             }
         }
     }
     
-    func fetchDog(url: URL, completion: @escaping(String?) -> Void) {
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No error")
-                return
+    func fetchData(from url: String, completion: @escaping(Result<Data, AFError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseData { dataResponse in
+                switch dataResponse.result {
+                case .success(let imageData):
+                    completion(.success(imageData))
+                case .failure(let error):
+                    completion(.failure(error))
             }
-            
-            let jsonDecoder = JSONDecoder()
-            
-            do {
-                let dogImageData = try jsonDecoder.decode(Dog.self, from: data)
-                DispatchQueue.main.async {
-                    completion(dogImageData.message)
-                }
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        }.resume()
+        }
     }
 }
