@@ -10,7 +10,6 @@ import UIKit
 final class InformationViewController: UIViewController {
     
     @IBOutlet weak var dogImage: UIImageView!
-    @IBOutlet weak var statusLabel: UILabel!
     
     private let networkManager = NetworkManager.shared
     

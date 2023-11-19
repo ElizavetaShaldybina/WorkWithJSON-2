@@ -25,7 +25,6 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="35"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="goButtonPushed" destination="BYZ-38-t0r" eventType="touchUpInside" id="2v7-Ba-bxu"/>
                                     <segue destination="0Lb-FM-v9Q" kind="presentation" id="t6K-CL-w7J"/>
                                 </connections>
                             </button>
